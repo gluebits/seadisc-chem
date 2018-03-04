@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Alkane Naming Practice</title>
+  
+  <style>
+  body{
+ font-family: "verdana";
+ background-color: #111;
+ padding-left: 40px;
+ color: #999;
+}
+#glue {
+ color: #61b63d;
+ text-shadow: 0 0 5px rgba(0,160,240,1);
+}
+#godc {
+ color: green;
+}
+#strongc {
+ color: #00cc00;
+}
+#decentc {
+ color: yellow;
+}
+#weakc {
+ color: orange;
+}
+#awefulc {
+ color: #f47a42;
+}
+#jokec {
+ color: red;
+}
+  </style>
+  
+  
+</head>
+<body>
+ <h2>
+  Alkane Naming Practice
+ </h2>
+  <p>
+   <i>Available on the internet near you!</i><br><span id="glue">seadisc chemistry</span>
+  </p>
+  <p>
+   <button onclick="submit()">Generate</button>
+  </p>
+ <p id="template"></p>
+ 
+ 
+ <script>
+ //<p id="customize"><button onclick="moreOptions()">more options</button></p>
+  //int randNum(int low, int high);
+var min = 1;
+var max = 500;
+var length;
+var output = "";
+
+function submit(){
+	
+    //RANDOM VARIABLE SETUP
+    
+    length = randNum(5, 8);
+    output="CH3 ";
+    for(var i = 0; i < length; i++){
+        switch(randNum(1, 6)){
+            case 1: 
+            output+="C2H4 ";
+            break;
+            case 2:
+            output+="C3H6 ";
+            break;
+            default:
+            output+="CH2 ";
+        }
+    }
+    output+="CH3";
+    
+    document.getElementById("template").innerHTML = output;
+    return 0;
+    
+}
+//Generates a random variable between parameters, inclusive
+function randNum (low, high){
+    return(Math.floor((Math.random()*100))%((high-low)+1)+low);
+}
+
+function moreOptions(){
+	document.getElementById("customize").innerHTML = "<button onclick=\"moreOptionsClose()\">hide</button><br>Length:<br>";
+}
+
+function moreOptionsClose(){
+	document.getElementById("customize").innerHTML = "<button onclick=\"moreOptions()\"></button>";
+}
+ </script>
+ 
+</body>
+</html>
